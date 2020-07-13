@@ -1,0 +1,6 @@
+.*
+rollup*
+src
+tsconfig.json
+jest*
+test
