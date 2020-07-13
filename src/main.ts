@@ -57,15 +57,16 @@ const request = (fn: Function, ctx: object, ...args: any[]) => new Promise(resol
   fn.apply(ctx, args).then((res: any) => resolve(res))
 })
 
-const scheduler = new Scheduler()
+const scheduler: Scheduler = new Scheduler()
 const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
    return scheduler.add(() => request(fn, ctx, args)).then((res: any) => Promise.resolve(res))
 }
 
-export function changeParallel(num: number){
+export function changeParallel(num: number): number{
   if(num) {
     num = num < 0 ? 0 : num
     scheduler.parallel = num
+    return num
   } else {
     return scheduler.parallel
   }
