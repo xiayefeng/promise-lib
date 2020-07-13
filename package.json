@@ -16,6 +16,19 @@
     "serial"
   ],
   "author": "xiaoyu",
+  "directories": {
+    "lib": "lib",
+    "dist": "dist"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiayefeng/promise-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiayefeng/promise-lib/issues"
+  },
+  "homepage": "https://github.com/xiayefeng/promise-lib#readme",
   "jsdelivr": "dist/promise-parallel.min.js",
   "devDependencies": {
     "@babel/cli": "^7.10.4",
@@ -53,4 +66,5 @@
     "pre-commit": "lint-staged"
   },
   "license": "MIT"
+  
 }
