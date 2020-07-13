@@ -1,6 +1,6 @@
 {
   "name": "promise-parallel-serial",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "promise-lib",
   "main": "index.js",
   "scripts": {
@@ -58,10 +58,6 @@
       "git add"
     ]
   },
-  "os": [
-    "darwin",
-    "linux"
-  ],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

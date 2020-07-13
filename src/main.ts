@@ -10,7 +10,13 @@ interface promise<T=any> extends Promise<T> {
 class Scheduler {
   list: promiseFn[] = []
   waitList: listType[] = []
-  parallelNum = 2
+  private parallelNum: number = 2
+  get parallel():number {
+    return this.parallelNum
+  }
+  set parallel(num: number) {
+    this.parallelNum = num
+  }
   add (promiseCreator: promiseFn): promise {
     if (this.list.length < this.parallelNum) {
       this.list.push(promiseCreator)
@@ -54,6 +60,15 @@ const request = (fn: Function, ctx: object, ...args: any[]) => new Promise(resol
 const scheduler = new Scheduler()
 const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
    return scheduler.add(() => request(fn, ctx, args)).then((res: any) => Promise.resolve(res))
+}
+
+export function changeParallel(num: number){
+  if(num) {
+    num = num < 0 ? 0 : num
+    scheduler.parallel = num
+  } else {
+    return scheduler.parallel
+  }
 }
 
 export default addPromise
