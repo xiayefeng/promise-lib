@@ -1,5 +1,5 @@
 {
-  "name": "promise-parallel",
+  "name": "promise-parallel-serial",
   "version": "1.0.0",
   "description": "promise-lib",
   "main": "index.js",

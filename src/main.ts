@@ -4,9 +4,7 @@ interface listType {
   cb: (() => promise) | Function
 }
 
-interface promise {
-  then: Function,
-  catch: Function
+interface promise<T=any> extends Promise<T> {
 }
 
 class Scheduler {
@@ -16,7 +14,7 @@ class Scheduler {
   add (promiseCreator: promiseFn): promise {
     if (this.list.length < this.parallelNum) {
       this.list.push(promiseCreator)
-      let promise = promiseCreator()
+      let promise:promise = promiseCreator()
       this.changeList(promise)
       return promise
     } else {
@@ -55,7 +53,7 @@ const request = (fn: Function, ctx: object, ...args: any[]) => new Promise(resol
 
 const scheduler = new Scheduler()
 const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
-    scheduler.add(() => request(fn, ctx, args)).then((res: any) => Promise.resolve(res))
+   return scheduler.add(() => request(fn, ctx, args)).then((res: any) => Promise.resolve(res))
 }
 
 export default addPromise

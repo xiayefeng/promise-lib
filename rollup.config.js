@@ -13,7 +13,7 @@ export default {
     },
     {
       format: 'iife',
-      name: 'promiseParallel',
+      name: 'promiseParallelSerial',
       file: './dist/promise-parallel.min.js',
       exports: 'named'
     },
