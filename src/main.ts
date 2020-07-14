@@ -55,9 +55,13 @@ class Scheduler {
   }
 }
 
+const request = (fn: Function, ctx: object, ...args: any[]) => new Promise(resolve => {
+  fn.apply(ctx, args).then((res: any) => resolve(res))
+})
+
 const scheduler: Scheduler = new Scheduler()
 const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
-   return scheduler.add(() => fn.apply(ctx, args)).then((res: any) => Promise.resolve(res))
+   return scheduler.add(() => fn.apply(ctx, args))?.then((res: any) => Promise.resolve(res))
 }
 
 export function changeParallel(num: number): number{
