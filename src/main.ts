@@ -41,9 +41,8 @@ class Scheduler {
     promise?.then(() => {
       // console.log(this.waitList)
       if (this.waitList.length > 0) {
-        // this.list.splice(idx, 1)
-        let obj: listType | undefined = this.waitList.shift()
-        let result:promise | undefined = obj?.promise()
+        const obj = this.waitList.shift()
+        const result = obj?.promise()
         result?.then(() => {
           obj?.cb()
         })
