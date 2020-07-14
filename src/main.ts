@@ -38,7 +38,7 @@ class Scheduler {
     }
   }
   changeList (promise: promise) {
-    promise.then(() => {
+    promise?.then(() => {
       // console.log(this.waitList)
       if (this.waitList.length > 0) {
         // this.list.splice(idx, 1)
