@@ -1,8 +1,9 @@
 {
   "name": "promise-parallel-serial",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "promise-lib",
   "main": "index.js",
+  "types": "src/main.ts",
   "scripts": {
     "test": "jest",
     "dev": "rollup -c --environment NODE_ENV:development",

@@ -17,10 +17,17 @@ class Scheduler {
   set parallel(num: number) {
     this.parallelNum = num
   }
-  add (promiseCreator: promiseFn): promise {
+  add (promiseCreator: promiseFn): promise | never {
+    if(typeof promiseCreator !== 'function') {
+      throw new Error('fn must be a function')
+    }
+    
     if (this.list.length < this.parallelNum) {
       this.list.push(promiseCreator)
       let promise:promise = promiseCreator()
+      if (typeof promise.then !== 'function') {
+        throw new Error('fn function must return a <Promise>')
+      }
       this.changeList(promise)
       return promise
     } else {
@@ -61,8 +68,11 @@ const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
    return scheduler.add(() => fn.apply(ctx, args))?.then((res: any) => Promise.resolve(res)).catch(err => Promise.reject(err))
 }
 
-export function changeParallel(num: number): number{
-  if(num) {
+export function changeParallel(num: number): number | never{
+  if (num != null) {
+    if (typeof num !== 'number') {
+      throw new TypeError('function changeParallel params must be number')
+    }
     num = num < 0 ? 0 : num
     scheduler.parallel = num
     return num
