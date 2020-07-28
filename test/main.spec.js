@@ -7,19 +7,19 @@ const timeout = time => new Promise(resolve => {
 describe('test addPromise fun', () => {
   it('test start', (done) => {
     let a, b, c, d
-    addPromise(timeout, {}, 1000).then(() => {
+    addPromise(timeout, null, 1000).then(() => {
       a = Date.now()
       console.log(a)
     })
-    addPromise(timeout, {}, 500).then(() => {
+    addPromise(timeout, null, 500).then(() => {
       b = Date.now()
       console.log(b)
     })
-    addPromise(timeout, {}, 300).then(() => {
+    addPromise(timeout, null, 300).then(() => {
       c = Date.now()
       console.log(c)
     })
-    addPromise(timeout, {}, 400).then(() => {
+    addPromise(timeout, null, 400).then(() => {
       d = Date.now()
       console.log(d)
       expect(a > b).toBe(true)
