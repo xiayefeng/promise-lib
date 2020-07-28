@@ -63,5 +63,4 @@
     "pre-commit": "lint-staged"
   },
   "license": "MIT"
-  
 }
