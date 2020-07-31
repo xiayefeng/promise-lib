@@ -76,7 +76,7 @@ export function changeParallel(num: number): number | never{
     if (typeof num !== 'number') {
       throw new TypeError('function changeParallel params must be number')
     }
-    num = num < 0 ? 0 : num
+    num = num <= 0 ? 1 : num
     scheduler.parallel = num
     return num
   } else {
