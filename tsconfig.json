@@ -14,7 +14,8 @@
     "traceResolution": true,
     "moduleResolution": "Node",
     "allowJs": true,
-    "target": "es5"
+    "target": "es5",
+    "resolveJsonModule": true
     
   },
   "include": [

@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "description": "promise-lib",
   "main": "index.js",
-  "types": "src/main.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "jest",
     "dev": "rollup -c --environment NODE_ENV:development",

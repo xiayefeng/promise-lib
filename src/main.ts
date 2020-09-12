@@ -1,3 +1,5 @@
+import {version} from '/package.json'
+
 type promiseFn = (arg?: any) => promise
 interface listType {
   promise: promiseFn,
@@ -71,6 +73,9 @@ const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
    Promise.resolve(res))
    .catch(err => Promise.reject(err))
 }
+
+addPromise.version = version
+
 
 export function changeParallel(num: number|void): number | never{
   if (num != null) {
