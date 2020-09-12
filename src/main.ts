@@ -72,7 +72,7 @@ const addPromise = (fn: Function, ctx: object, ...args: any[]) => {
    .catch(err => Promise.reject(err))
 }
 
-export function changeParallel(num: number): number | never{
+export function changeParallel(num: number|void): number | never{
   if (num != null) {
     if (typeof num !== 'number') {
       throw new TypeError('function changeParallel params must be number')
