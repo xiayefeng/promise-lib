@@ -1,4 +1,4 @@
-import {version} from '/package.json'
+import {version} from '../package.json'
 
 type promiseFn = (arg?: any) => promise
 interface listType {
